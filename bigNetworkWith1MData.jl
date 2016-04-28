@@ -14,9 +14,14 @@
 using Knet
 using ArgParse
 using JLD
+
+println("Knet is activated")
+println("JLD is activated ")
+
 @knet function wconv(x; out=0, window=0, paddingValue=0, cinit=Xavier())
   w = par(;init=cinit, dims=(window, window, 0, out))
   return conv(w,x; padding=paddingValue)
+
 end
 @knet function cbf(x; f=:relu,cwindow=0,cpadding=0,cout=0)
   y= wconv(x; window=cwindow, paddingValue=cpadding, out=cout)
