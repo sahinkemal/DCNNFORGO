@@ -10,7 +10,7 @@ In this project, Deep Convolutional Neural Networks is an approach to play Go li
 
 ## Tests
 By using following command with one of the model, the model chosen by user will be trained and tested. 
-include("/path/to/oneOftheModel.jl")
+include("/path/to/model.jl")
 In order to use convolutional model, you must work on a gpu machine. Otherwise, the training and testing will not be available.  
 
 ## Contributors
