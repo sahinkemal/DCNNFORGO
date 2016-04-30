@@ -2,12 +2,9 @@
 #According to 9 states that are obtained by the belonging location of the stone
 #The states are related to stones' position in the board because the adjacent intersections'
 #availability will be checked.
-
-
 function LibertySolver(Coordinate, CoordinateOfGeneral)
   CoordinateOfGeneral=CoordinateOfGeneral;
   Coordinate=Coordinate;
-
   length=size(Coordinate,1);
   TheLocationsWillBeCheckedForCase1=round(Int64,zeros(1,6));
   TheLocationsWillBeCheckedForCase2=round(Int64,zeros(1,6));
@@ -19,12 +16,10 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
   TheLocationsWillBeCheckedForCase8=round(Int64,zeros(1,4));
   TheLocationsWillBeCheckedForCase9=round(Int64,zeros(1,4));
   LibertyValueOfStone=round(Int64,zeros(1,round(Int64,size(Coordinate,1)/2)));
-
   HalfLengthOfCoordinate=size(CoordinateOfGeneral,1)/2;
   for i=1:div(length,2)
     if (Coordinate[2*i-1] == 1 & (1 < Coordinate[2*i] & Coordinate[2*i] < 19))
         print("case 1\n")
-
         TheLocationsWillBeCheckedForCase1[1:2:3]=1;
         TheLocationsWillBeCheckedForCase1[2]=Coordinate[2*i]-1;
         TheLocationsWillBeCheckedForCase1[4]=Coordinate[2*i]+1;
@@ -43,7 +38,6 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     elseif ((Coordinate[2*i] == 19) & (1 < Coordinate[2*i-1] & Coordinate[2*i-1] < 19))
         print("case 2\n")
         TheLocationsWillBeCheckedForCase2[1]=Coordinate[2*i-1]-1;
@@ -65,7 +59,6 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     elseif ((Coordinate[2*i-1] == 19) & (1 < Coordinate[2*i] & Coordinate[2*i] < 19))
         print("case 3\n")
         TheLocationsWillBeCheckedForCase3[1]=Coordinate[2*i-1];
@@ -87,7 +80,6 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     elseif ((Coordinate[2*i] == 1) & (1 < Coordinate[2*i-1] & Coordinate[2*i-1] < 19))
         print("case 4\n")
         TheLocationsWillBeCheckedForCase4[1]=Coordinate[2*i-1]-1;
@@ -109,7 +101,6 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     elseif ((1 < Coordinate[2*i-1] & Coordinate[2*i-1] < 19) & (1 < Coordinate[2*i] & Coordinate[2*i] < 19))
         print("case 5\n")
         TheLocationsWillBeCheckedForCase5[1]=Coordinate[2*i-1]-1;
@@ -133,7 +124,6 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     elseif ((Coordinate[2*i-1] == 1) & (Coordinate[2*i] == 1))
         print("case 6\n")
         TheLocationsWillBeCheckedForCase6[1]=Coordinate[2*i-1]+1;
@@ -153,7 +143,6 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     elseif ((Coordinate[2*i-1] == 1) & (Coordinate[2*i] == 19))
         print("case 7\n")
         TheLocationsWillBeCheckedForCase7[1]=Coordinate[2*i-1]+1;
@@ -173,7 +162,6 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     elseif ((Coordinate[2*i-1] == 19) & (Coordinate[2*i] == 1))
         print("case 8\n")
         TheLocationsWillBeCheckedForCase8[1]=Coordinate[2*i-1]-1;
@@ -193,7 +181,6 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     elseif ((Coordinate[2*i-1] == 19) & (Coordinate[2*i] == 19))
         print("case 9\n")
         TheLocationsWillBeCheckedForCase9[1]=Coordinate[2*i-1]-1;
@@ -213,13 +200,7 @@ function LibertySolver(Coordinate, CoordinateOfGeneral)
         print(count)
         print("\n")
         LibertyValueOfStone[i]=4-count;
-
     end
   end
-
 end
 
-
-#Coordinate=[1,1,1,8,7,1,19,1,19,15,19,19,17,19,1,19,14,14,3,8,2,8];
-#CoordinateOfGeneral=[1,1,1,8,7,1,19,1,19,15,19,19,17,19,1,19,14,14,3,8,1,2,2,8,18,1];
-#LibertySolver(Coordinate,CoordinateOfGeneral)
